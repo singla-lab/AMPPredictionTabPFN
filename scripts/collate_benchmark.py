@@ -194,6 +194,12 @@ def collate_results():
             "Infer time (mean)":   f"{np.mean(infer_t):.0f}s",
         })
 
+    if not summary_rows:
+        raise SystemExit(
+            f"No cached predictions found under {PREDS_DIR}, so there is nothing to "
+            f"collate.\nRun `python scripts/evaluate.py` first: it fits all five transforms for all three seeds and writes the cache. See docs/DATA.md section 3."
+        )
+
     df = pd.DataFrame(summary_rows)
     csv_path = RESULTS_DIR / "benchmark_summary.csv"
     if csv_path.exists():

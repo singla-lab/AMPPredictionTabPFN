@@ -74,7 +74,14 @@ def main():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     stamp = datetime.datetime.now().strftime("%Y%m%dT%H%M%S")
 
-    z = np.load(OUT_DIR / "escape_test_subset_preds.npz", allow_pickle=True)
+    preds_npz = OUT_DIR / "escape_test_subset_preds.npz"
+    if not preds_npz.exists():
+        raise SystemExit(
+            f"Missing {preds_npz}. Run `python scripts/escape_inference.py "
+            f"--mode test_subset` first; it produces the ESCAPE predictions this "
+            f"comparison is paired against."
+        )
+    z = np.load(preds_npz, allow_pickle=True)
     e_hash = z["hashes"].astype(str)
     e_labels = list(z["labels"])
     e_prob = z["ensemble"]

@@ -58,7 +58,10 @@ def load_run(
     s = strategy.lower()
     path = pathlib.Path(preds_dir) / s / f"{s}_seed{seed}.npy"
     if not path.exists():
-        raise FileNotFoundError(f"No cached predictions at {path}")
+        raise FileNotFoundError(
+            f"No cached predictions at {path}. "
+            "Run `python scripts/evaluate.py` first: it fits all five transforms for all three seeds and writes the cache. See docs/DATA.md section 3."
+        )
 
     data = np.load(path, allow_pickle=True).item()
     oof = np.asarray(data["train_oof_probs"], dtype=np.float32)

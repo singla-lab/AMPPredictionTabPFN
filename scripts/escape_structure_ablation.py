@@ -110,6 +110,12 @@ def main():
     df = test[test["Hash"].isin(set(have))].reset_index(drop=True)
     print(f"structural ablation on {len(df):,} peptides", flush=True)
 
+    if not have:
+        raise SystemExit(
+            f"No structural maps found in {maps_dir}. This analysis needs the maps "
+            f"released with the ESCAPE benchmark; see docs/DATA.md section 4."
+        )
+
     lo = min(float(np.load(f"{maps_dir}/{h}.npy").min()) for h in have)
     hi = max(float(np.load(f"{maps_dir}/{h}.npy").max()) for h in have)
     print(f"global_min={lo:.4f} global_max={hi:.4f}", flush=True)

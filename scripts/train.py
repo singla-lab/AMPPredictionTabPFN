@@ -95,6 +95,10 @@ def main():
     def model_factory():
         return STRATEGY_MAP[args.strategy](**model_kwargs)
 
+    # Pin the tracking store, as evaluate.py and scaling_analysis.py do. MLflow 3
+    # refuses the default ./mlruns file store outright, so without this the run
+    # dies before any modelling happens.
+    mlflow.set_tracking_uri(f"sqlite:///{REPO_ROOT / 'mlflow.db'}")
     mlflow.set_experiment("tabamp_multilabel_classification")
 
     with mlflow.start_run(run_name=f"{args.strategy}_seed{args.seed}"):
