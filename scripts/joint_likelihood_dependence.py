@@ -66,7 +66,11 @@ def get_br_test_probs(seed, col_indices):
     if not npy_path.exists():
         npy_path = PREDS_DIR / f"br_seed{seed}.npy"
         if not npy_path.exists():
-            raise FileNotFoundError(f"Could not find BR predictions for seed {seed}")
+            raise FileNotFoundError(
+                f"Could not find BR predictions for seed {seed} under {PREDS_DIR}. "
+                "Run `python scripts/evaluate.py` first: it fits all five transforms "
+                "for all three seeds and writes the cache. See docs/DATA.md section 3."
+            )
             
     data = np.load(npy_path, allow_pickle=True).item()
     p_test = data['test_probs']
