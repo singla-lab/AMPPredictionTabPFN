@@ -1,0 +1,31 @@
+# pip-only alternative to environment.yml. Python 3.10 is assumed.
+#
+#   python -m venv .venv && source .venv/bin/activate
+#   pip install -r requirements.txt
+#   pip install -e .
+#
+# Torch here targets CUDA 13.0; for another CUDA version install it first from
+# the matching index at https://pytorch.org/get-started/locally/.
+--extra-index-url https://download.pytorch.org/whl/cu130
+
+numpy==2.2.6
+pandas==2.3.3
+pyarrow==24.0.0
+scipy==1.15.2
+scikit-learn==1.7.2
+matplotlib==3.10.9
+seaborn==0.13.2
+joblib==1.5.3
+pillow==12.3.0
+tqdm==4.70.0
+
+torch==2.13.0
+tabpfn==8.2.0
+tabpfn-extensions==0.5.0
+mlflow==3.14.0
+
+pytest==9.1.1
+
+# Optional. Only needed if you import the vendored external/escape/dataset.py
+# directly; scripts/escape_inference.py does its own preprocessing.
+# torchvision

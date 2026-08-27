@@ -1,0 +1,59 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite both the software and the preprint below."
+title: "AMPPredictionTabPFN: tabular in-context learning for multi-activity antimicrobial peptide profiling"
+abstract: >-
+  Sequence-only multi-activity antimicrobial peptide prediction on the ESCAPE
+  benchmark: 330 interpretable sequence descriptors paired with TabPFN, compared
+  across five multi-label transforms (binary relevance, label powerset,
+  classifier chain, ensemble classifier chains, probabilistic classifier chain).
+type: software
+license: MIT
+repository-code: "https://github.com/singla-lab/AMPPredictionTabPFN"
+authors:
+  - family-names: Kumar
+    given-names: Raunak
+    affiliation: "Department of Electronics and Communication Engineering, Indian Institute of Technology Roorkee"
+  - family-names: Pal
+    given-names: Anuj
+    affiliation: "Department of Electronics and Communication Engineering, Indian Institute of Technology Roorkee"
+  - family-names: Solanki
+    given-names: Dhruvi
+    affiliation: "Department of Bioengineering, Indian Institute of Science, Bengaluru"
+  - family-names: Pareek
+    given-names: Parikshit
+    affiliation: "Department of Electrical Engineering, Indian Institute of Technology Roorkee"
+  - family-names: Singh
+    given-names: Juhi
+    affiliation: "Department of Bioengineering, Indian Institute of Science, Bengaluru"
+  - family-names: Singla
+    given-names: Jitin
+    affiliation: "Department of Biosciences and Bioengineering, Indian Institute of Technology Roorkee"
+keywords:
+  - antimicrobial peptides
+  - multi-label classification
+  - tabular foundation models
+  - TabPFN
+  - ESCAPE benchmark
+  - assay prioritization
+
+# TODO: fill in once the preprint is posted.
+preferred-citation:
+  type: article
+  title: "Coarse composition suffices: tabular in-context learning for multi-activity antimicrobial peptide profiling"
+  authors:
+    - family-names: Kumar
+      given-names: Raunak
+    - family-names: Pal
+      given-names: Anuj
+    - family-names: Solanki
+      given-names: Dhruvi
+    - family-names: Pareek
+      given-names: Parikshit
+    - family-names: Singh
+      given-names: Juhi
+    - family-names: Singla
+      given-names: Jitin
+  journal: bioRxiv
+  year: 2026
+  doi: "TBD"
+  url: "TBD"

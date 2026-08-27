@@ -1,0 +1,45 @@
+# Conda environment for AMPPredictionTabPFN.
+#
+#   conda env create -f environment.yml
+#   conda activate amptabpfn
+#   pip install -e .
+#
+# Versions are those used for every number in the paper (Section 2.4).
+# Build strings are deliberately omitted so the file resolves on any platform;
+# `conda env export` from the resulting environment gives the exact lock.
+#
+# GPU: the wheels below target CUDA 13.0 (the paper used two NVIDIA RTX PRO 5000
+# Blackwell, 48 GB each). For a different CUDA version, install torch from the
+# matching index at https://pytorch.org/get-started/locally/ and drop the
+# --extra-index-url line. CPU-only works for every post-hoc analysis but is
+# impractical for the TabPFN fits.
+name: amptabpfn
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10.20
+  - numpy=2.2.6
+  - pandas=2.3.3
+  - pyarrow=24.0.0
+  - scipy=1.15.2
+  - scikit-learn=1.7.2
+  - matplotlib-base=3.10.9
+  - seaborn=0.13.2
+  - joblib=1.5.3
+  - pillow=12.3.0
+  - pytest=9.1.1
+  - pip
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu130
+      - torch==2.13.0
+      - tabpfn==8.2.0
+      - tabpfn-extensions==0.5.0
+      - mlflow==3.14.0
+      - tqdm==4.70.0
+
+# Not installable by conda/pip — install separately (see docs/DATA.md):
+#   MMseqs2 18.8cc5c   homology stratification (scripts/homology_analysis.py)
+#                      conda install -c bioconda "mmseqs2=18.8cc5c"
+#   torchvision        only if you import the vendored `external/escape/dataset.py`
+#                      directly; scripts/escape_inference.py does its own
+#                      preprocessing and does not need it.

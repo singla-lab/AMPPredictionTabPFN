@@ -1,0 +1,47 @@
+{
+  "final_fold1": {
+    "rows": 32948,
+    "cols": 337,
+    "n_features": 330,
+    "mb": 38.9,
+    "csv_mb": 155.8,
+    "sha256": "6a74fcb8d57e2219110d116644b51faed2033b2d261e1c4c59836def992675cd",
+    "positives": {
+      "Antibacterial": 6437,
+      "Antifungal": 2679,
+      "Antiviral": 1885,
+      "Antiparasitic": 161,
+      "Antimicrobial": 8586
+    }
+  },
+  "final_fold2": {
+    "rows": 32922,
+    "cols": 337,
+    "n_features": 330,
+    "mb": 38.9,
+    "csv_mb": 115.6,
+    "sha256": "6410d2f5365bce9529e857bacb3880cb92800122028974d024693de8921bcbce",
+    "positives": {
+      "Antibacterial": 6482,
+      "Antifungal": 2657,
+      "Antiviral": 1895,
+      "Antiparasitic": 179,
+      "Antimicrobial": 8588
+    }
+  },
+  "final_test": {
+    "rows": 16489,
+    "cols": 337,
+    "n_features": 330,
+    "mb": 20.0,
+    "csv_mb": 78.0,
+    "sha256": "da7a3d307e6dff3e60a1a72bf36b0f585bcfa84fb83757003b6abd9529bd1640",
+    "positives": {
+      "Antibacterial": 3187,
+      "Antifungal": 1316,
+      "Antiviral": 946,
+      "Antiparasitic": 77,
+      "Antimicrobial": 4235
+    }
+  }
+}

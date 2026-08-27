@@ -1,0 +1,52 @@
+# ---------------------------------------------------------------------------
+# Bulk inputs and outputs are not tracked. This repository ships code only;
+# see docs/DATA.md for how to obtain or regenerate everything under data/,
+# and docs/PAPER_MAP.md for which script writes which artefact under results/.
+# ---------------------------------------------------------------------------
+
+# Data. The 330-descriptor feature matrices ARE tracked, as Parquet: the
+# equivalent CSVs are 150 MB each and two of them exceed GitHub's 100 MB
+# per-file limit. Everything else here is bulk or regenerable -- see docs/DATA.md.
+data/*
+!data/README.md
+!data/final/
+data/final/*
+!data/final/*.parquet
+!data/final/CHECKSUMS.json
+
+# Materialized CSVs (scripts/materialize_features.py) and the CTD-corrected copy
+data/final/*.csv
+data/final_v2/
+
+# Analysis outputs
+results/*
+!results/README.md
+logs/
+
+# Environment & build artefacts
+*.egg-info/
+build/
+dist/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Testing & linting
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+
+# MLflow experiment tracking
+mlruns/
+.mlflow/
+mlflow.db
+
+# Notebooks
+.ipynb_checkpoints/
+
+# OS & IDE
+.DS_Store
+.vscode/
+.idea/

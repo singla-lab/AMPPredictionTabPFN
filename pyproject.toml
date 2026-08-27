@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "amptabpfn"
+version = "1.0.0"
+description = "Tabular in-context learning for multi-activity antimicrobial peptide profiling"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "Raunak Kumar" },
+  { name = "Anuj Pal" },
+  { name = "Dhruvi Solanki" },
+  { name = "Parikshit Pareek" },
+  { name = "Juhi Singh" },
+  { name = "Jitin Singla" },
+]
+keywords = [
+  "antimicrobial peptides",
+  "multi-label classification",
+  "tabular foundation models",
+  "TabPFN",
+  "ESCAPE benchmark",
+]
+
+[project.urls]
+Repository = "https://github.com/singla-lab/AMPPredictionTabPFN"
+
+[tool.setuptools]
+packages = ["src", "src.data", "src.models", "src.utils", "external", "external.escape"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
